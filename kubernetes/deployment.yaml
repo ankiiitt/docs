@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dot-connect
+spec:
+  selector:
+    matchLabels:
+      app: dot-connect
+  replicas: 2
+  template:
+    metadata:
+      namespace: dev
+      labels:
+        app: dot-connect
+    spec:
+     imagePullSecrets:
+     - name: secret-tiger-docker 
+     containers:
+     - name: dot-connect
+       image: dotdevacr.azurecr.io/test1:latest
+       imagePullPolicy: Always
+       ports:
+       - containerPort: 3000
