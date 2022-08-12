@@ -1,0 +1,629 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "VM location"
+            }
+        },
+        "RGName": {
+            "type": "string",
+            "metadata": {
+                "description": "VM ResourceGroup Name"
+            }
+        },
+        "platform": {
+            "type": "string",
+            "defaultValue": "WinSrv",
+            "allowedValues": [
+                "WinSrv",
+                "Linux"
+            ],
+            "metadata": {
+                "description": "Select the OS platform to deploy."
+            }
+        },
+        "environment": {
+            "type": "string",
+            "allowedValues": [
+                "prod",
+                "nonprod"
+            ],
+            "defaultValue": "nonprod",
+            "metadata": {
+                "description": "Environment for the VM build. This is either prod or nonprod."
+            }
+        },
+        "vmPrefixName": {
+            "type": "string",
+            "metadata": {
+                "description": "VM Name"
+            }
+        },
+        "availabilitySetName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Availability Set"
+            }
+        },
+        "numberOfInstances": {
+            "type": "int",
+            "defaultValue": 2,
+            "minValue": 1,
+            "maxValue": 5,
+            "metadata": {
+                "description": "Number of VMs to deploy, limit 5, but could be adjusted."
+            }
+        },
+        "storageaccountname": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage account name prefix used for log data on VM.  This name must be unique."
+            }
+        },
+        "virtualMachineSize": {
+            "type": "string",
+            "defaultValue": "Standard_D1_v2",
+            "metadata": {
+                "description": "VM Size"
+            }
+        },
+        "WinOSVersion": {
+            "type": "string",
+            "defaultValue": "2016-Datacenter",
+            "allowedValues": [
+                "2012-R2-Datacenter",
+                "2016-Datacenter",
+                "2019-Datacenter"
+            ],
+            "metadata": {
+                "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version."
+            }
+        },
+        "RHELVersion": {
+            "type": "string",
+            "defaultValue": "7.5",
+            "allowedValues": [
+                "7-RAW",
+                "7.4",
+                "7.5",
+                "7.6"
+            ]
+        },
+        "virtualNetworkName": {
+            "type": "string",
+            "metadata": {
+                "description": "VNET Name"
+            }
+        },
+        "subnetName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of subnet"
+            }
+        },
+        "virtualNetworkResourceGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Resource Group VNET is deployed in"
+            }
+        },
+        "sizeOfEachDataDiskInGB": {
+            "type": "int",
+            "metadata": {
+                "description": "Size of Each data disk"
+            }
+        },
+        "domainJoinOptions": {
+            "type": "int",
+            "metadata": {
+                "description": "Domain options"
+            }
+        },
+        "domainUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "Domain User account name with permissions to join the VM to the domain."
+            }
+        },
+        "domainPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Password for the domain join account."
+            }
+        },
+        "win-adminUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "Admin User name"
+            }
+        },
+        "linux-adminUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "Admin User name"
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "For Windows, reference to password in keyvault."
+            }
+        },
+        "sshKeyData": {
+            "type": "securestring",
+            "metadata": {
+                "description": "For Linux, reference to SSH key found in keyvault."
+            }
+        },
+        "ouPath": {
+            "type": "string",
+            "metadata": {
+                "description": "OU for VM to be added to when domain joined."
+            }
+        },
+        "win-install-uri": {
+            "type": "string",
+            "metadata": {
+                "description": "URI for the custom powershell script"
+            }
+        },
+        "win-command": {
+            "type": "string",
+            "metadata": {
+                "description": "Windows Command to run custom powershell script"
+            }
+        },
+        "linux-install-uri": {
+            "type": "string",
+            "metadata": {
+                "description": "URI for the custom shell script"
+            }
+        },
+        "linux-command": {
+            "type": "string",
+            "metadata": {
+                "description": "Command to run custom shell script"
+            }
+        },
+        "agentinstall-storage": {
+            "type": "string",
+            "metadata": {
+                "description": "Blob Storage Account name where custom script is located."
+            }
+        },
+        "agentinstall-storagekey": {
+            "type": "string",
+            "metadata": {
+                "description": "Blob Storage key for custom script."
+            }
+        },
+        "nonprod-workspaceKey": {
+            "type": "string",
+            "metadata": {
+                "description": "NonProd Workspace Key for OMS"
+            }
+        },
+        "nonprod-workspaceId": {
+            "type": "string",
+            "metadata": {
+                "description": "NonProd Workspace ID for OMS"
+            }
+        },
+        "prod-workspaceKey": {
+            "type": "string",
+            "metadata": {
+                "description": "Prod Workspace Key for OMS"
+            }
+        },
+        "prod-workspaceId": {
+            "type": "string",
+            "metadata": {
+                "description": "Prod Workspace ID for OMS"
+            }
+        }
+    },
+    "variables": {
+        "vnetId": "[resourceId(parameters('virtualNetworkResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
+        "storageAccountName": "[concat(parameters('storageaccountname'), 'storage')]",
+        "windowsOffer": "WindowsServer",
+        "windowsSku": "[parameters('WinOSVersion')]",
+        "windowsPublisher": "MicrosoftWindowsServer",
+        "linuxOffer": "RHEL",
+        "linuxSku": "[parameters('RHELVersion')]",
+        "linuxPublisher": "RedHat",
+        "sshKeyPath": "[concat('/home/',parameters('linux-adminUsername'),'/.ssh/authorized_keys')]",
+        "win-command": "[concat(parameters('win-command'), parameters('environment'))]",
+        "domainToJoin": "kmx.local"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageAccountName')]",
+            "apiVersion": "2016-01-01",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[concat(parameters('vmPrefixName'), copyIndex(1), '-nic01')]",
+            "apiVersion": "2016-09-01",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "nicLoop",
+                "count": "[parameters('numberOfInstances')]",
+                "mode": "Parallel"
+            },
+            "dependsOn": [
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[variables('subnetRef')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Compute/availabilitySets",
+            "name": "[parameters('availabilitySetName')]",
+            "apiVersion": "2019-03-01",
+            "location": "[parameters('location')]",
+            "properties": {
+                "platformFaultDomainCount": 2,
+                "platformUpdateDomainCount": 2
+            },
+            "sku": {
+                "name": "Aligned"
+            }
+        },
+        {
+            "condition": "[equals(parameters('platform'), 'WinSrv')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[string(concat(parameters('vmPrefixName'), copyIndex(1)))]",
+            "apiVersion": "2018-10-01",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "virtualMachineLoop",
+                "count": "[parameters('numberOfInstances')]"
+            },
+            "dependsOn": [
+                "nicLoop",
+                "[variables('storageAccountName')]",
+                "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]"
+            ],
+            "properties": {
+                "availabilitySet": {
+                    "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]"
+                },
+                "osProfile": {
+                    "computerName": "[string(concat(parameters('vmPrefixName'), copyIndex(1)))]",
+                    "adminUsername": "[parameters('win-adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]",
+                    "windowsConfiguration": {
+                        "provisionVmAgent": true
+                    }
+                },
+                "hardwareProfile": {
+                    "vmSize": "[parameters('virtualMachineSize')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('windowsPublisher')]",
+                        "offer": "[variables('windowsOffer')]",
+                        "sku": "[variables('windowsSku')]",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "createOption": "FromImage",
+                        "name": "[string(concat(parameters('vmPrefixName'), copyIndex(1), '-osdisk'))]",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                        }
+                    },
+                    "dataDisks": [
+                        {
+                            "diskSizeGB": "[parameters('sizeOfEachDataDiskInGB')]",
+                            "lun": 0,
+                            "createOption": "Empty",
+                            "name": "[string(concat(parameters('vmPrefixName'), copyIndex(1), '-datadisk01'))]",
+                            "managedDisk": {
+                                "storageAccountType": "Standard_LRS"
+                            }
+                        }
+                    ]
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[string(resourceId('Microsoft.Network/networkInterfaces', concat(parameters('vmPrefixName'), copyIndex(1), '-nic01')))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
+                    }
+                }
+            }
+        },
+        {
+            "condition": "[equals(parameters('platform'), 'WinSrv')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('vmPrefixName'), copyIndex(1), '/domainjoin')]",
+            "apiVersion": "2015-06-15",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "domainjoinLoop",
+                "count": "[parameters('numberOfInstances')]",
+                "mode": "Parallel"
+            },
+            "dependsOn": [
+                "[concat(parameters('vmPrefixName'), copyIndex(1))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "JsonADDomainExtension",
+                "typeHandlerVersion": "1.3",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "Name": "[variables('domainToJoin')]",
+                    "OUPath": "[parameters('ouPath')]",
+                    "User": "[concat(variables('domainToJoin'), '\\', parameters('domainUsername'))]",
+                    "Restart": "true",
+                    "Options": "[parameters('domainJoinOptions')]"
+                },
+                "protectedSettings": {
+                    "Password": "[parameters('domainPassword')]"
+                }
+            }
+        },
+        {
+            "condition": "[equals(parameters('platform'), 'WinSrv')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('vmPrefixName'), copyIndex(1), '/vmBGInfo')]",
+            "apiVersion": "2015-06-15",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "vmBGinfoLoop",
+                "count": "[parameters('numberOfInstances')]",
+                "mode": "Parallel"
+            },
+            "dependsOn": [
+                "[concat(parameters('vmPrefixName'), copyIndex(1))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "BGInfo",
+                "autoUpgradeMinorVersion": true,
+                "typeHandlerVersion": "2.1",
+                "settings": {
+                },
+                "protectedSettings": null
+            }
+        },
+        {
+            "condition": "[equals(parameters('platform'), 'WinSrv')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('vmPrefixName'), copyIndex(1),'/CustomScript')]",
+            "apiVersion": "2015-06-15",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "CustomScriptLoop",
+                "count": "[parameters('numberOfInstances')]",
+                "mode": "Parallel"
+            },
+            "dependsOn": [
+                "[concat(parameters('vmPrefixName'), copyIndex(1))]",
+                "domainjoinLoop"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "typeHandlerVersion": "1.9",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "fileUris": [
+                        "[parameters('win-install-uri')]"
+                    ],
+                    "commandToExecute": "[variables('win-command')]"
+                },
+                "protectedSettings": {
+                    "storageAccountName": "[parameters('agentinstall-storage')]",
+                    "storageAccountKey": "[parameters('agentinstall-storagekey')]"
+                }
+            }
+        },
+        {
+            "condition": "[equals(parameters('platform'), 'Linux')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[string(concat(parameters('vmPrefixName'), copyIndex(1), 'L'))]",
+            "apiVersion": "2018-10-01",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "virtualMachineLoop",
+                "count": "[parameters('numberOfInstances')]"
+            },
+            "dependsOn": [
+                "nicLoop",
+                "[variables('storageAccountName')]",
+                "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]"
+            ],
+            "properties": {
+                "availabilitySet": {
+                    "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]"
+                },
+                "osProfile": {
+                    "computerName": "[string(concat(parameters('vmPrefixName'), copyIndex(1), 'L'))]",
+                    "adminUsername": "[parameters('linux-adminUsername')]",
+                    "adminPassword": "[parameters('sshKeyData')]",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "[variables('sshKeyPath')]",
+                                    "keyData": "[parameters('sshKeyData')]"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "hardwareProfile": {
+                    "vmSize": "[parameters('virtualMachineSize')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('linuxPublisher')]",
+                        "offer": "[variables('linuxOffer')]",
+                        "sku": "[variables('linuxSku')]",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "createOption": "FromImage",
+                        "name": "[string(concat(parameters('vmPrefixName'), copyIndex(1), 'L', '-osdisk'))]",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                        }
+                    },
+                    "dataDisks": [
+                        {
+                            "diskSizeGB": "[parameters('sizeOfEachDataDiskInGB')]",
+                            "lun": 0,
+                            "createOption": "Empty",
+                            "name": "[string(concat(parameters('vmPrefixName'), copyIndex(1), 'L', '-datadisk01'))]",
+                            "managedDisk": {
+                                "storageAccountType": "Standard_LRS"
+                            }
+                        }
+                    ]
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[string(resourceId('Microsoft.Network/networkInterfaces', concat(parameters('vmPrefixName'), copyIndex(1), '-nic01')))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
+                    }
+                }
+            }
+        },
+        {
+            "condition": "[equals(parameters('platform'), 'Linux')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('vmPrefixName'), copyIndex(1), 'L', '/LinuxOMSAgent')]",
+            "apiVersion": "2018-10-01",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "linuxomsagentLoop",
+                "count": "[parameters('numberOfInstances')]",
+                "mode": "Parallel"
+            },
+            "dependsOn": [
+                "[concat(parameters('vmPrefixName'), copyIndex(1), 'L')]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "OmsAgentForLinux",
+                "typeHandlerVersion": "1.10.0-1",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "workspaceId": "[if(equals(parameters('environment'), 'nonprod'), parameters('nonprod-workspaceId'), parameters('prod-workspaceId'))]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[if(equals(parameters('environment'), 'nonprod'), parameters('nonprod-workspacekey'), parameters('prod-workspacekey'))]"
+                }
+            }
+        },
+        {
+            "condition": "[equals(parameters('platform'), 'Linux')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('vmPrefixName'), copyIndex(1), 'L', '/LinuxOMS-DependencyAgent')]",
+            "apiVersion": "2018-10-01",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "linuxomsdependencyLoop",
+                "count": "[parameters('numberOfInstances')]",
+                "mode": "Parallel"
+            },
+            "dependsOn": [
+                "[concat(parameters('vmPrefixName'), copyIndex(1), 'L')]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+                "type": "DependencyAgentLinux",
+                "typeHandlerVersion": "9.1",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                },
+                "protectedsettings": {
+                }
+            }
+        },
+        {
+            "condition": "[equals(parameters('platform'), 'Linux')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('vmPrefixName'), copyIndex(1), 'L', '/LinuxCustomScript')]",
+            "apiVersion": "2018-10-01",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "linuxcustomscriptLoop",
+                "count": "[parameters('numberOfInstances')]",
+                "mode": "Parallel"
+            },
+            "dependsOn": [
+                "[concat(parameters('vmPrefixName'), copyIndex(1), 'L')]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Azure.Extensions",
+                "type": "CustomScript",
+                "typeHandlerVersion": "2.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "fileUris": [
+                        "[parameters('linux-install-uri')]"
+                    ]
+                },
+                "protectedSettings": {
+                    "commandToExecute": "[parameters('linux-command')]",
+                    "storageAccountName": "[parameters('agentinstall-storage')]",
+                    "storageAccountKey": "[parameters('agentinstall-storagekey')]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "adminUsername": {
+            "type": "string",
+            "value": "[if(equals(parameters('platform'), 'WinSrv'), parameters('win-adminUsername'), parameters('linux-adminUsername'))]"
+        },
+        "platform": {
+            "type": "string",
+            "value": "[parameters('platform')]"
+        },
+        "connectionInfo": {
+            "type": "string",
+            "value": "[if(equals(parameters('platform'), 'WinSrv'), 'Use RDP to connect to the VM', 'Use SSH to connect to the VM')]"
+        }
+    }
+}

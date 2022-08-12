@@ -1,0 +1,340 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "NSGName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the NSG"
+            }
+        },
+        "NSGRegion": {
+            "type": "string",
+            "defaultValue": "eastus",
+            "metadata": {
+                "description": "Region of the NSG"
+            }
+        },
+        "TargetResourceGroup": {
+            "type": "string",
+            "defaultValue": "eastus",
+            "metadata": {
+                "description": "Resource Group of the NSG"
+            }
+        },
+        "SubscriptionID": {
+            "type": "string",
+            "metadata": {
+                "description": "Subscription ID"
+            }
+        }
+    },
+    "variables": {
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-06-01",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('NSGName')]",
+            "location": "[parameters('NSGRegion')]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "Allow-TCP-AD",
+                        "properties": {
+                            "description": "Allow AD TCP Traffic",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": [
+                                "139",
+                                "3268-3269",
+                                "49152-65535"
+                            ],
+                            "sourceAddressPrefixes": [
+                                "10.9.2.135",
+                                "10.75.2.135",
+                                "10.16.205.150",
+                                "10.16.205.151",
+                                "10.161.204.215",
+                                "10.161.204.216"
+                            ],
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 170,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-UDP-AD",
+                        "properties": {
+                            "description": "Allow AD UDP Traffic",
+                            "protocol": "UDP",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": [
+                                "88",
+                                "138",
+                                "389"
+                            ],
+                            "sourceAddressPrefixes": [
+                                "10.9.2.135",
+                                "10.75.2.135",
+                                "10.16.205.150",
+                                "10.16.205.151",
+                                "10.161.204.215",
+                                "10.161.204.216"
+                            ],
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 180,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-TCP-UDP-AD",
+                        "properties": {
+                            "description": "Allow AD TCP Traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": [
+                                "135",
+                                "445",
+                                "464",
+                                "53"
+                            ],
+                            "sourceAddressPrefixes": [
+                                "10.9.2.135",
+                                "10.75.2.135",
+                                "10.16.205.150",
+                                "10.16.205.151",
+                                "10.161.204.215",
+                                "10.161.204.216"
+                            ],
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 190,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-OnPrem-RDP-SSH",
+                        "properties": {
+                            "description": "Allow Utility Server RDP Traffic",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": [
+                                "3389",
+                                "22"
+                            ],
+                            "sourceAddressPrefixes": [
+                                "172.18.0.0/16",
+                                "10.16.0.0/16",
+                                "10.161.0.0/16"
+                            ],
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 200,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-HTTP-S",
+                        "properties": {
+                            "description": "Allow OnPrem HTTP, and HTTPS, Traffic",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": [
+                                "80",
+                                "443"
+                            ],
+                            "sourceAddressPrefixes": [
+                                "172.18.0.0/16",
+                                "10.161.0.0/16",
+                                "10.16.0.0/16",
+                                "172.17.0.0/16"
+                            ],
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 210,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-HPOM-OMi",
+                        "properties": {
+                            "description": "Allow OnPrem HPOM & OMi Traffic",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": [
+                                "382",
+                                "383",
+                                "443",
+                                "445",
+                                "135"
+                            ],
+                            "sourceAddressPrefixes": [
+                                "10.16.204.54",
+                                "10.161.204.57"
+                            ],
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 240,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-Inbound-Tower",
+                        "properties": {
+                            "description": "Allow WinRM & SSH Traffic from AWX & Tower servers for the purpose of Configuration Management.",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": [
+                                "5985-5986",
+                                "443",
+                                "22"
+                            ],
+                            "sourceAddressPrefixes": [
+                                "172.18.71.206",
+                                "172.18.72.139",
+                                "172.18.72.140",
+                                "172.18.72.141",
+                                "10.1.4.64/26",
+                                "10.1.4.0/26"
+                            ],
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 300,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Deny-VNet-To-VNet-TCP",
+                        "properties": {
+                            "description": "Deny Vnet to Vnet TCP Traffic",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Deny",
+                            "priority": 4000,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Deny-VNet-To-VNet-UDP",
+                        "properties": {
+                            "description": "Deny Vnet to Vnet UDP Traffic",
+                            "protocol": "UDP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Deny",
+                            "priority": 4005,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-VNet-To-VNet-ICMP",
+                        "properties": {
+                            "description": "Allow Vnet to Vnet ICMP Traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 4010,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-Outbound-Splunk-Indexer",
+                        "properties": {
+                            "description": "Allow Traffic from Splunk to communication with the Splunk index servers.",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRanges": [
+                                "9997",
+                                "8089"
+                            ],
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefixes": [
+                                "10.21.6.0/24",
+                                "10.33.3.0/24",
+                                "10.29.4.0/24",
+                                "172.18.120.32",
+                                "10.16.204.82"
+                            ],
+                            "access": "Allow",
+                            "priority": 2000,
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-Outbound-AzureStorageEast",
+                        "properties": {
+                            "description": "Allow SSL outbound to Azure East Storage",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Storage.EastUS",
+                            "access": "Allow",
+                            "priority": 3000,
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-Outbound-AzureStorageWest",
+                        "properties": {
+                            "description": "Allow SSL outbound to Azure West Storage",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Storage.WestUS",
+                            "access": "Allow",
+                            "priority": 3010,
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "Allow-Outbound-RHUI-HTTP-S",
+                        "properties": {
+                            "description": "Allow HTTP and HTTPS for RHUI.",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefixes": [
+                                "13.91.47.76",
+                                "40.85.190.91",
+                                "52.187.75.218",
+                                "52.174.163.213",
+                                "52.237.203.198"
+                            ],
+                            "access": "Allow",
+                            "priority": 4100,
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "Deny-Outbound-Internet",
+                        "properties": {
+                            "description": "Deny all outbound internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Deny",
+                            "priority": 4110,
+                            "direction": "Outbound"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

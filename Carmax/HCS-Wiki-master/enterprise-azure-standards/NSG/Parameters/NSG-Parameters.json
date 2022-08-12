@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "NSGName": {
+            "value": "kmx-sbx-east-wintest-nsg"
+        },
+        "NSGRegion": {
+            "value": "East US"
+        },
+        "TargetResourceGroup": {
+            "value": "kmx-sbx-east-wintest"
+        },
+        "SubscriptionID": {
+            "value": "4f849b44-b9a4-4acf-8347-3bb243d545c7"
+        }
+    }
+}

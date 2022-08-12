@@ -1,0 +1,1007 @@
+Subscription: IT Operations Prod Subscription
+
+Name                                        Description
+----                                        -----------
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+kmx-dbateam-administration                  This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor, Docu…
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX Buys Leads                              Custom Role for Buys, This group would include team lead developers and would grant additional custom access to prod resources
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+KMX Checkout Reader Plus                    Custom Role for Checkout team. This group will include all permissions from KMX Buys Leads and is the same in terms of use case. This new role has been crea…
+
+==================================================================================================================================================
+Subscription: IT Operations Non Production Subscription
+
+Name                                        Description
+----                                        -----------
+datadog-nonprod-monitoring                  Allow read access to all Azure services for monitoring. Ability to read files has been stripped from this CRBAC
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+kmx-dbateam-administration                  This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor, Docu…
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+kmx-testresourcegroup                       Allows to create resource groups but cannot delete them
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX Buys Leads                              Custom Role for Buys, This group would include team lead developers and would grant additional custom access to prod resources
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+KMX Checkout Reader Plus                    Custom Role for Checkout team. This group will include all permissions from KMX Buys Leads and is the same in terms of use case. This new role has been crea…
+
+==================================================================================================================================================
+Subscription: PII Non Production Subscription
+
+Name                                        Description
+----                                        -----------
+datadog-nonprod-monitoring                  Allow read access to all Azure services for monitoring. Ability to read files has been stripped from this CRBAC
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+cps-infrastructure-management-role          Custom role for accessing CPS non-prod & Prod resouces.
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Enterprise Messaging Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Enterprise Cloud Platform TEST Subscription I
+
+Name                                        Description
+----                                        -----------
+Azure Resource Group Provisioner            Allows creation of resource groups
+datadog-nonprod-monitoring                  Allow read access to all Azure services for monitoring. Ability to read files has been stripped from this CRBAC
+Dashboard Access and Adding roles           Allows to create add and publish dashboards
+Dashboard Access                            Allows to create add and publish dashboards
+Dashboard Access3                           Allows to create add and publish dashboards
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+kmx-KeyvaultContributor                     Allows access to keyvaults 
+kmx-appdelivery1-vmnetwork-restore          AppDelivery1 - Lets you restore a VM to the Vnet that this this role is assigned to. This custom Role is a combination of Backup Operator and Network Contri…
+kmx-dbateam-administration                  This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor, Docu…
+kmx-NSGonSubnet                             Allows to perform write operations on subnet
+kmx-networkcontibutor                       Allows to perform write operations on subnet
+kmx-resourcegroupcreation3                  Allows to create resource groups but cannot delete them
+kmx-keyvaultContributortest                 Allows access to keyvaults 
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+kmx-testresourcegroup                       Allows to create resource groups but cannot delete them
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX Sells Key Vault Deployment Access       Lets you access certificates.
+KMX-Contributor                             Customized contibutor role for resource group contributors
+cps-infrastructure-management-role          Custom role for accessing CPS non-prod & Prod resouces.
+Test Role Definition                        This is a test role definition with no permissions. It should be automatically deleted
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Infrastructure Shared Non Production Subscription
+
+Name                                        Description
+----                                        -----------
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Enterprise Cloud Platform TEST Subscription II
+
+Name                                        Description
+----                                        -----------
+Dashboard Access and Adding roles           Allows to create add and publish dashboards
+Dashboard Access3                           Allows to create add and publish dashboards
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+kmx-appdelivery1-vmnetwork-restore          AppDelivery1 - Lets you restore a VM to the Vnet that this this role is assigned to. This custom Role is a combination of Backup Operator and Network Contri…
+kmx-dbateam-administration                  This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor, Docu…
+kmx-resourcegroupcreation                   Allows to create resource groups but cannot delete them
+kmx-resourcegroupcreation3                  Allows to create resource groups but cannot delete them
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+kmx-testresourcegroup                       Allows to create resource groups but cannot delete them
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Innovation Garage Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: AppDelivery 2 Non Production Subscription
+
+Name                                             Description
+----                                             -----------
+datadog-nonprod-monitoring                       Allow read access to all Azure services for monitoring. Ability to read files has been stripped from this CRBAC
+KMX VM Patching                                  Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                     KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role      Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                                  Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting vi…
+kmx-KeyvaultContributor                          Allows access to keyvaults 
+kmx-dsml-Reader-Deploy                           View everything in the Scope assigned and also run deploy actions.
+kmx-dbateam-administration                       This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor,…
+kmx-NSGonSubnet                                  Allows to perform write operations on subnet
+kmx-networkcontibutor                            Allows to perform write operations on subnet
+KMX-Network-Watcher-Role                         Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll                  Allows Users to submit support requests and read all details.
+SPO Attributes                                   Allows SPO to access key vaults and add a NIC to a Subnet
+KMX Sells Key Vault Deployment Access            Lets you access certificates.
+KMX Sells Key Vault                              Lets you manage key vaults, but not access to them.
+cps-infrastructure-management-role               Custom role for accessing CPS non-prod & Prod resouces.
+KMX Offer Hub Common Key Vault Deployment Access Lets you access certificates and secrets.
+KMX-CPS-Analyst-Role                             Allows CPS users to assign an MSI from their jumpbox to their keyvault
+KMX Buys Leads                                   Custom Role for Buys, This group would include team lead developers and would grant additional custom access to prod resources
+KMX-RGManage-and-Lock                            Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                       This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups              Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                                   Can only add/edit/delete resource tags
+KMX Checkout Reader Plus                         Custom Role for Checkout team. This group will include all permissions from KMX Buys Leads and is the same in terms of use case. This new role has been…
+
+==================================================================================================================================================
+Subscription: AppDelivery 2 Production Subscription
+
+Name                                             Description
+----                                             -----------
+datadog-prod-monitoring                          Allow read access to all Azure services for monitoring. Ability to read files has been stripped from this CRBAC
+KMX VM Patching                                  Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                     KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role      Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                                  Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting vi…
+kmx-KeyvaultContributor                          Allows access to keyvaults 
+kmx-dsml-Reader-Deploy                           View everything in the Scope assigned and also run deploy actions.
+kmx-dbateam-administration                       This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor,…
+kmx-networkcontibutor                            Allows to perform write operations on subnet
+KMX-Network-Watcher-Role                         Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll                  Allows Users to submit support requests and read all details.
+SPO Attributes                                   Allows SPO to access key vaults and add a NIC to a Subnet
+KMX Sells Key Vault Deployment Access            Lets you access certificates.
+KMX Offer Hub Common Key Vault Deployment Access Lets you access certificates and secrets.
+KMX-CPS-Analyst-Role                             Allows CPS users to assign an MSI from their jumpbox to their keyvault
+KMX Buys Leads                                   Custom Role for Buys, This group would include team lead developers and would grant additional custom access to prod resources
+KMX-RGManage-and-Lock                            Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                       This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups              Has Contributor access with the addition of being able to manage locks.
+ADF Operator                                     Can start an ADF Pipeline Run
+KMX-TagManager                                   Can only add/edit/delete resource tags
+KMX Checkout Reader Plus                         Custom Role for Checkout team. This group will include all permissions from KMX Buys Leads and is the same in terms of use case. This new role has been…
+
+==================================================================================================================================================
+Subscription: CarMax Master
+
+Name                                        Description
+----                                        -----------
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+Carmax Full Reader Access                   Allows for Read Access to Everything
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+kmx-dbateam-administration                  This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor, Docu…
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+Service Bus Key Lister                      Based on Reader plus the ability to list service bus keys
+Shared Central Resource Group Access        Allows for Access to Shared Resources in Central Resource Group
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Customer Progression Service Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: AppDelivery 1 Production Subscription
+
+Name                                             Description
+----                                             -----------
+Dashboard2                                       Allows to create abd publish dashboards
+KMX VM Patching                                  Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                     KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role      Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                                  Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting vi…
+kmx-dashboardpublish1                            Allows to create add and publish the dashboards
+kmx-appdelivery1-vmnetwork-restore               AppDelivery1 - Lets you restore a VM to the Vnet that this this role is assigned to. This custom Role is a combination of Backup Operator and Network C…
+kmx-dbateam-administration                       This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor,…
+kmx-networkcontibutor                            Allows to perform write operations on subnet
+KMX-Network-Watcher-Role                         Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll                  Allows Users to submit support requests and read all details.
+SPO Attributes                                   Allows SPO to access key vaults and add a NIC to a Subnet
+KMX Offer Hub Common Key Vault Deployment Access Lets you access certificates and secrets.
+KMX Buys Leads                                   Custom Role for Buys, This group would include team lead developers and would grant additional custom access to prod resources
+KMX-RGManage-and-Lock                            Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                       This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups              Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                                   Can only add/edit/delete resource tags
+KMX Checkout Reader Plus                         Custom Role for Checkout team. This group will include all permissions from KMX Buys Leads and is the same in terms of use case. This new role has been…
+
+==================================================================================================================================================
+Subscription: Vehicle Purchase Service Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: AppDelivery 1 Non Production Subscription
+
+Name                                             Description
+----                                             -----------
+KMX VM Patching                                  Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                     KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role      Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                                  Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting vi…
+kmx-dashboardpublish                             Allows to create add and publish the dashboards
+kmx-appdelivery1-vmnetwork-restore               AppDelivery1 - Lets you restore a VM to the Vnet that this this role is assigned to. This custom Role is a combination of Backup Operator and Network C…
+kmx-dbateam-administration                       This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor,…
+KMX-Network-Watcher-Role                         Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll                  Allows Users to submit support requests and read all details.
+SPO Attributes                                   Allows SPO to access key vaults and add a NIC to a Subnet
+KMX Offer Hub Common Key Vault Deployment Access Lets you access certificates and secrets.
+KMX Buys Leads                                   Custom Role for Buys, This group would include team lead developers and would grant additional custom access to prod resources
+KMX-RGManage-and-Lock                            Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                       This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups              Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                                   Can only add/edit/delete resource tags
+KMX Checkout Reader Plus                         Custom Role for Checkout team. This group will include all permissions from KMX Buys Leads and is the same in terms of use case. This new role has been…
+
+==================================================================================================================================================
+Subscription: Infrastructure Shared Production Subscription
+
+Name                                        Description
+----                                        -----------
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: PII Production Subscription
+
+Name                                        Description
+----                                        -----------
+datadog-prod-monitoring                     Allow read access to all Azure services for monitoring. Ability to read files has been stripped from this CRBAC
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: CarMax Technology Academy
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Application Shared Non Production Subscription
+
+Name                                        Description
+----                                        -----------
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX DBA Team Role                           KMX DBA team custom role.  This role includes a combination of actions from Automation Job Operator, Automation Operatorator, Reader and DocumentDB Account …
+KMX DBA PowerUsers Team Role                KMX DBA powerusers team custom role.  This role includes a combination of actions from Contributor & KMX DBA Team Role (Automation Job Operator, Automation …
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+kmx-dbateam-administration                  This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor, Docu…
+kmx-NSGonSubnet                             Allows to perform write operations on subnet
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Information Security Prod Subscription
+
+Name                                        Description
+----                                        -----------
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Application Shared Production Subscription
+
+Name                                        Description
+----                                        -----------
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+kmx-dbateam-administration                  This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor, Docu…
+kmx-NSGonSubnet                             Allows to perform write operations on subnet
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Information Security Non Production Subscription
+
+Name                                        Description
+----                                        -----------
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+eDocsNetworking                             Custom Role created for eDocs to allow them to manage their side of the network connections. This includes connecting services to a VNSE, connecting virtual…
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Online Finance Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Carmax Instant Offers
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Adx Test Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Everest Production Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Catalog Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Checkout Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX Checkout Reader Plus            Custom Role for Checkout team. This group will include all permissions from KMX Buys Leads and is the same in terms of use case. This new role has been created for …
+
+==================================================================================================================================================
+Subscription: Vehicle Condition Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Appraisal Condition Capture Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Customer Consent Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: EME Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Landing Experience Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Quote Gateway Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Finance Based Shopping Pilot Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: CIAM Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Everest Non production Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Horizon Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Acquisition Appraisal Subscription
+
+Name                                             Description
+----                                             -----------
+KMX VM Patching                                  Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+KMX Key Vault Access during deployment Role      Allows Users to access Key Vaults for arm template deployments.
+kmx-KeyvaultContributor                          Allows access to keyvaults 
+kmx-dsml-Reader-Deploy                           View everything in the Scope assigned and also run deploy actions.
+kmx-dbateam-administration                       This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor,…
+kmx-NSGonSubnet                                  Allows to perform write operations on subnet
+kmx-networkcontibutor                            Allows to perform write operations on subnet
+KMX-Network-Watcher-Role                         Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll                  Allows Users to submit support requests and read all details.
+KMX Sells Key Vault Deployment Access            Lets you access certificates.
+KMX Sells Key Vault                              Lets you manage key vaults, but not access to them.
+KMX Offer Hub Common Key Vault Deployment Access Lets you access certificates and secrets.
+KMX-CPS-Analyst-Role                             Allows CPS users to assign an MSI from their jumpbox to their keyvault
+KMX-RGManage-and-Lock                            Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups              Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                                   Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Fraud Platform Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Acquisition Shared Resources Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: ECM Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Sell My Car
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Test82 Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Online Appraisal Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Policy Testing Subscription
+
+Name           Description
+----           -----------
+KMX-TagManager Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: OfferHub Pilot Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Web Vehicle Service Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Customer Transfer Service Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender          This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Test Drive Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Acquisition Store Adapters Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Capabilities Enablement Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Search Experience Gateway Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Media Capabilities Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: CAF Production Subscription
+
+Name                                        Description
+----                                        -----------
+datadog-prod-monitoring                     Allow read access to all Azure services for monitoring. Ability to read files has been stripped from this CRBAC
+CAF-Devops                                  Can deploy VMs that need secrets from key vault
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+kmx-NSGonSubnet                             Allows to perform write operations on subnet
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+CAF-RG-Lock-Administration                  Lets you create, read and delete resource and resource group locks.
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Conversational Experience Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Payments Gateway Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: AppDelivery 3 Non Production Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender          This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Appraisal Instore Appraisal Experience Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Sitecrawler Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Appraisal Checkout Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: DSA Management System Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender          This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Test31 Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Microsoft 365 Automation Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: CRM Customer Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Seo Capabilities Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: AppDelivery 4 Non Production Subscription
+
+Name                                Description
+----                                -----------
+kmx-keyvaultContributortest         Allows access to keyvaults 
+KMX-Contributor                     Customized contibutor role for resource group contributors
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender          This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Auctions Platform Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: CAF Non Production Subscription
+
+Name                                        Description
+----                                        -----------
+datadog-nonprod-monitoring                  Allow read access to all Azure services for monitoring. Ability to read files has been stripped from this CRBAC
+CAF-Devops                                  Can deploy VMs that need secrets from key vault
+KMX VM Patching                             Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+Key Vault Deployment Allowed                KeyVault Deployment Allow
+KMX Key Vault Access during deployment Role Allows Users to access Key Vaults for arm template deployments.
+kmx-NSGonSubnet                             Allows to perform write operations on subnet
+KMX-Network-Watcher-Role                    Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll             Allows Users to submit support requests and read all details.
+SPO Attributes                              Allows SPO to access key vaults and add a NIC to a Subnet
+cps-infrastructure-management-role          Custom role for accessing CPS non-prod & Prod resouces.
+CAF-RG-Lock-Administration                  Lets you create, read and delete resource and resource group locks.
+KMX-RGManage-and-Lock                       Can create and manage both resource groups and locks.
+KMX-EventHub-Storage-Sender                  This role allows users and SPOs to send logs to EventHub and Storage Account
+KMX-Contributor-Lock-ResourceGroups         Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                              Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Transfer Experience Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Sudhar Subscription
+
+Name           Description
+----           -----------
+KMX-TagManager Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Sales Order Service
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: MaxOffer Subscription
+
+Name                                             Description
+----                                             -----------
+KMX VM Patching                                  Lets you view VM related resource details on all subscriptions, start/restart VMs and run predefined scripts on a specific VM.
+KMX Key Vault Access during deployment Role      Allows Users to access Key Vaults for arm template deployments.
+kmx-KeyvaultContributor                          Allows access to keyvaults 
+kmx-dsml-Reader-Deploy                           View everything in the Scope assigned and also run deploy actions.
+kmx-dbateam-administration                       This role is a combination of the following roles and functions: Automation Operator, SQL DB Contributor, SQL Security Manager, SQL Server Contributor,…
+kmx-NSGonSubnet                                  Allows to perform write operations on subnet
+kmx-networkcontibutor                            Allows to perform write operations on subnet
+KMX-Network-Watcher-Role                         Allows Users to access and manage Network Watcher.
+KMX-Support-Contributor-ReadAll                  Allows Users to submit support requests and read all details.
+KMX Sells Key Vault Deployment Access            Lets you access certificates.
+KMX Sells Key Vault                              Lets you manage key vaults, but not access to them.
+KMX Offer Hub Common Key Vault Deployment Access Lets you access certificates and secrets.
+KMX-CPS-Analyst-Role                             Allows CPS users to assign an MSI from their jumpbox to their keyvault
+KMX-RGManage-and-Lock                            Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups              Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                                   Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Nativeapps Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Web Store Service Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Enterprise Data Lake Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+ADF Operator                        Can start an ADF Pipeline Run
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Sudharz Subscription
+
+Name           Description
+----           -----------
+KMX-TagManager Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: DSML Subscription
+
+Name                                Description
+----                                -----------
+kmx-dsml-Reader-Deploy              View everything in the Scope assigned and also run deploy actions.
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+ADF Operator                        Can start an ADF Pipeline Run
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Sud98 Subscription
+
+Name                                Description
+----                                -----------
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+KMX-TagManager                      Can only add/edit/delete resource tags
+
+==================================================================================================================================================
+Subscription: Vehicle Condition Store Adapter Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Finance Transformation Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================
+Subscription: Finance Forward Subscription
+
+Name                                Description
+----                                -----------
+KMX-TagManager                      Can only add/edit/delete resource tags
+KMX-RGManage-and-Lock               Can create and manage both resource groups and locks.
+KMX-Contributor-Lock-ResourceGroups Has Contributor access with the addition of being able to manage locks.
+
+==================================================================================================================================================

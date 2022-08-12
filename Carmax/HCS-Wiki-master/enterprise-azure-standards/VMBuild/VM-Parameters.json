@@ -1,0 +1,165 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "East US"
+        },
+        "RGName": {
+            "value": "kmx-dev-east-applicationname"
+        },
+        "platform": {
+            "value": "WinSrv"
+        },
+        "environment": {
+            "value": "nonprod"
+        },
+        "vmPrefixName": {
+            "value": "VMName3"
+        },
+        "availabilitySetName": {
+            "value": "VMNameAVSet"
+        },
+        "numberOfInstances": {
+            "value": 2
+        },
+        "storageaccountname": {
+            "value": "vmnameeast"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D1_v2"
+        },
+        "virtualNetworkName": {
+            "value": "itops-nonprod-eastus-vnet"
+        },
+        "subnetName": {
+            "value": "applicationname-dev-eastus-subnet-app"
+        },
+        "virtualNetworkResourceGroup": {
+            "value": "kmx-itops-nonprod"
+        },
+        "sizeOfEachDataDiskInGB": {
+            "value": 128
+        },
+        "ouPath": {
+            "value": "OU=TEST,OU=ITOPS,OU=NONPROD,OU=Azure,OU=Servers,DC=KMX,DC=LOCAL"
+        },
+        "WinOSVersion": {
+            "value": "2016-Datacenter"
+        },
+        "RHELVersion": {
+            "value": "7-RAW"
+        },
+        "domainJoinOptions": {
+            "value": 3
+        },
+        "domainUsername": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "domainadminuser"
+            }
+        },
+        "domainPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "domainpw"
+            }
+        },
+        "win-adminUsername": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "LocalAdminUserDomain"
+            }
+        },
+        "linux-adminUsername": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "linuxUsername"
+            }
+        },
+        "adminPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "LocalAdminPassDomain"
+            }
+        },
+        "sshKeyData": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "sshKeyData"
+            }
+        },
+        "win-install-uri": {
+            "value": "https://kmxprodinfrashared.blob.core.windows.net/scripts/WinExtensionScript.ps1"
+        },
+        "win-command": {
+            "value": "powershell -ExecutionPolicy Unrestricted -File WinExtensionScript.ps1 -environment "
+        },
+        "linux-install-uri": {
+            "value": "https://kmxprodinfrashared.blob.core.windows.net/linux-domain-join/master.sh"
+        },
+        "linux-command": {
+            "value": "sh master.sh"
+        },
+        "agentinstall-storage": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "agentinstall-storage"
+            }
+        },
+        "agentinstall-storagekey": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "agentinstall-storagekey"
+            }
+        },
+        "nonprod-workspaceKey": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/4f849b44-b9a4-4acf-8347-3bb243d545c7/resourceGroups/kmx-itops-nonprod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-nonprod-east-vault"
+                },
+                "secretName": "workspaceKey"
+            }
+        },
+        "nonprod-workspaceId": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/4f849b44-b9a4-4acf-8347-3bb243d545c7/resourceGroups/kmx-itops-nonprod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-nonprod-east-vault"
+                },
+                "secretName": "workspaceId"
+            }
+        },
+        "prod-workspaceKey": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "workspaceKey"
+            }
+        },
+        "prod-workspaceId": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ff5066ec-4e18-4496-a391-f8202174140e/resourceGroups/kmx-itops-prod-admin-shared/providers/Microsoft.KeyVault/vaults/itops-prod-east-vault"
+                },
+                "secretName": "workspaceId"
+            }
+        }
+    }
+}
